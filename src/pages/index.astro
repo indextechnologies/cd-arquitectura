@@ -3,6 +3,22 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SeccionTexto from '../components/SeccionTexto.astro';
 import '../styles/main.css';
+
+const proyectos = [
+  { nombre: 'Casa Moderna', categoria: 'Hogares y Reformas', descripcion: 'Reforma integral con diseño minimalista y materiales sostenibles.', año: 2024 },
+  { nombre: 'Restaurante La Bóveda', categoria: 'Espacios Comerciales', descripcion: 'Diseño de interiores para restaurante de alta cocina.', año: 2024 },
+  { nombre: 'Oficinas Tech Hub', categoria: 'Oficinas y Proyectos Corporativos', descripcion: 'Espacio de trabajo colaborativo para empresa tecnológica.', año: 2024 },
+  { nombre: 'Boutique Fashion', categoria: 'Espacios Comerciales', descripcion: 'Local comercial con escaparates de impacto visual máximo.', año: 2023 },
+];
+
+const clientes = [
+  { nombre: 'Cliente A', sector: 'Residencial' },
+  { nombre: 'Cliente B', sector: 'Hostelería' },
+  { nombre: 'Cliente C', sector: 'Corporativo' },
+  { nombre: 'Cliente D', sector: 'Comercial' },
+  { nombre: 'Cliente E', sector: 'Institucional' },
+  { nombre: 'Cliente F', sector: 'Promotora' },
+];
 ---
 
 <!DOCTYPE html>
@@ -12,7 +28,7 @@ import '../styles/main.css';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content={Astro.generator} />
   <title>CD Arquitectura – Diseño & Construcción</title>
-  <meta name="description" content="CD Arquitectura: estudio de diseño y construcción liderado por Marcello y Vanessa. Hogares, espacios comerciales, oficinas y servicios de mantenimiento." />
+  <meta name="description" content="CD Arquitectura: estudio de diseño y construcción liderado por Marcello y Vanessa Caffiero Dávalos. Hogares, espacios comerciales, oficinas y mantenimiento en Asunción, Paraguay." />
   <meta property="og:title" content="CD Arquitectura – Diseño & Construcción" />
   <meta property="og:description" content="Arquitectura moderna con visión, precisión y pasión por el detalle." />
   <meta property="og:type" content="website" />
@@ -28,13 +44,9 @@ import '../styles/main.css';
 
   <!-- HERO -->
   <section class="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 overflow-hidden">
-    <!-- Background grid -->
     <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(#cc0000 1px, transparent 1px), linear-gradient(90deg, #cc0000 1px, transparent 1px); background-size: 60px 60px;"></div>
-
-    <!-- Radial glow -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-red-900/10 blur-3xl pointer-events-none"></div>
 
-    <!-- Logo principal -->
     <div class="relative z-10 text-center mb-8 fade-in" style="animation-delay: 0.1s;">
       <div class="flex items-center justify-center gap-2 md:gap-4 mb-6">
         <span class="neon-cd text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black leading-none">CD</span>
@@ -43,13 +55,11 @@ import '../styles/main.css';
           <span class="neon-arq text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.2em] leading-none">ARQ</span>
         </div>
       </div>
-
       <p class="fade-in-up text-gray-400 text-base sm:text-lg md:text-xl font-light tracking-widest uppercase" style="animation-delay: 0.4s;">
         Arquitectura · Diseño · Construcción
       </p>
     </div>
 
-    <!-- CTA -->
     <div class="relative z-10 flex flex-col sm:flex-row gap-4 mt-4 fade-in-up" style="animation-delay: 0.7s;">
       <a href="/portafolio" class="btn-glow bg-red-700 hover:bg-red-600 text-white font-semibold px-8 py-3.5 rounded text-sm uppercase tracking-wider transition-colors duration-300 text-center">
         Ver Portafolio
@@ -59,7 +69,6 @@ import '../styles/main.css';
       </a>
     </div>
 
-    <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in" style="animation-delay: 1.2s;">
       <span class="text-gray-600 text-xs uppercase tracking-widest">Scroll</span>
       <div class="w-px h-12 bg-gradient-to-b from-gray-600 to-transparent animate-pulse"></div>
@@ -69,7 +78,6 @@ import '../styles/main.css';
   <!-- SOBRE NOSOTROS -->
   <section class="py-20 md:py-28 px-4" id="sobre-nosotros">
     <div class="max-w-7xl mx-auto">
-
       <SeccionTexto
         titulo="Sobre Nosotros"
         subtitulo="Quiénes Somos"
@@ -77,9 +85,7 @@ import '../styles/main.css';
         clase="mb-16 md:mb-20"
       />
 
-      <!-- Team grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
-
         <!-- Marcello -->
         <div class="reveal flex flex-col items-center md:items-start text-center md:text-left">
           <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-6 ring-2 ring-red-700/50 ring-offset-4 ring-offset-black">
@@ -90,27 +96,19 @@ import '../styles/main.css';
               </div>
             </div>
           </div>
-
           <blockquote class="text-red-400 text-sm italic mb-4 font-light tracking-wide">
             "La arquitectura es el arte de crear espacios que cuentan historias."
           </blockquote>
-
-          <h3 class="text-white text-xl font-bold mb-1">Marcello</h3>
+          <h3 class="text-white text-xl font-bold mb-1">Marcello Caffiero Dávalos</h3>
           <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Arquitecto & Co-Fundador</p>
-
           <p class="text-gray-400 text-sm leading-relaxed mb-5">
             Con más de 10 años de experiencia en diseño arquitectónico, Marcello lidera los proyectos residenciales y corporativos del estudio. Su enfoque combina innovación técnica con sensibilidad estética, creando espacios funcionales y atemporales.
           </p>
-
           <div class="flex flex-col gap-1.5 text-sm text-gray-500">
-            <span class="flex items-center gap-2">
+            <a href="tel:+595981880177" class="flex items-center gap-2 hover:text-red-400 transition-colors duration-300">
               <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-              marcello@cdarquitectura.com
-            </span>
-            <span class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-              +34 600 000 000
-            </span>
+              0981 880 177
+            </a>
           </div>
         </div>
 
@@ -124,34 +122,26 @@ import '../styles/main.css';
               </div>
             </div>
           </div>
-
           <blockquote class="text-red-400 text-sm italic mb-4 font-light tracking-wide">
             "Cada detalle importa. El diseño transforma la vida cotidiana."
           </blockquote>
-
-          <h3 class="text-white text-xl font-bold mb-1">Vanessa</h3>
+          <h3 class="text-white text-xl font-bold mb-1">Vanessa Caffiero Dávalos</h3>
           <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Arquitecta & Co-Fundadora</p>
-
           <p class="text-gray-400 text-sm leading-relaxed mb-5">
-            Especializada en interiorismo y espacios comerciales, Vanessa aporta una visión creativa y detallista a cada proyecto. Su experiencia internacional le permite integrar tendencias globales con el contexto local de cada cliente.
+            Especializada en interiorismo y espacios comerciales, Vanessa aporta una visión creativa y detallista a cada proyecto. Su experiencia le permite integrar tendencias globales con el contexto local de cada cliente.
           </p>
-
           <div class="flex flex-col gap-1.5 text-sm text-gray-500">
-            <span class="flex items-center gap-2">
+            <a href="tel:+595981256150" class="flex items-center gap-2 hover:text-red-400 transition-colors duration-300">
               <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-              vanessa@cdarquitectura.com
-            </span>
-            <span class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
-              +34 610 000 000
-            </span>
+              0981 256 150
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICIOS PREVIEW -->
+  <!-- SERVICIOS CON ICONOS -->
   <section class="py-16 md:py-20 px-4 bg-gray-900/30">
     <div class="max-w-7xl mx-auto">
       <SeccionTexto
@@ -161,45 +151,180 @@ import '../styles/main.css';
       />
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          { titulo: 'Hogares y Reformas', desc: 'Reforma integral de viviendas con diseño personalizado.' },
-          { titulo: 'Espacios Comerciales', desc: 'Locales y establecimientos diseñados para impactar.' },
-          { titulo: 'Oficinas Corporativas', desc: 'Espacios de trabajo modernos y funcionales.' },
-          { titulo: 'Mantenimiento', desc: 'Servicios continuos para preservar cada proyecto.' },
-        ].map((s, i) => (
-          <div class="reveal p-6 border border-gray-800 rounded-lg hover:border-red-700/50 transition-all duration-300 group">
-            <div class="w-8 h-1 bg-red-700 mb-5 group-hover:w-full transition-all duration-500 rounded"></div>
-            <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-2">{s.titulo}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+
+        <!-- Hogares y Reformas -->
+        <div class="reveal servicio-card group p-7 border border-gray-800 rounded-xl bg-black/60 hover:border-red-700/60 hover:bg-gray-900/80 transition-all duration-400 cursor-default flex flex-col gap-5">
+          <div class="w-14 h-14 rounded-xl bg-red-700/10 border border-red-700/20 flex items-center justify-center group-hover:scale-125 transition-transform duration-300 ease-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-base mb-2 group-hover:text-red-400 transition-colors duration-300">Hogares y Reformas</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Reforma integral de viviendas con diseño personalizado y atención a cada detalle.</p>
+          </div>
+          <a href="/que-hacemos" class="text-red-600 text-xs font-semibold uppercase tracking-wider hover:text-red-400 transition-colors duration-300 mt-auto">Ver más →</a>
+        </div>
+
+        <!-- Espacios Comerciales -->
+        <div class="reveal servicio-card group p-7 border border-gray-800 rounded-xl bg-black/60 hover:border-red-700/60 hover:bg-gray-900/80 transition-all duration-400 cursor-default flex flex-col gap-5">
+          <div class="w-14 h-14 rounded-xl bg-red-700/10 border border-red-700/20 flex items-center justify-center group-hover:scale-125 transition-transform duration-300 ease-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-base mb-2 group-hover:text-red-400 transition-colors duration-300">Espacios Comerciales</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Locales y establecimientos diseñados para comunicar tu marca e impactar al cliente.</p>
+          </div>
+          <a href="/que-hacemos" class="text-red-600 text-xs font-semibold uppercase tracking-wider hover:text-red-400 transition-colors duration-300 mt-auto">Ver más →</a>
+        </div>
+
+        <!-- Oficinas Corporativas -->
+        <div class="reveal servicio-card group p-7 border border-gray-800 rounded-xl bg-black/60 hover:border-red-700/60 hover:bg-gray-900/80 transition-all duration-400 cursor-default flex flex-col gap-5">
+          <div class="w-14 h-14 rounded-xl bg-red-700/10 border border-red-700/20 flex items-center justify-center group-hover:scale-125 transition-transform duration-300 ease-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-base mb-2 group-hover:text-red-400 transition-colors duration-300">Oficinas Corporativas</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Espacios de trabajo modernos y funcionales que potencian la productividad.</p>
+          </div>
+          <a href="/que-hacemos" class="text-red-600 text-xs font-semibold uppercase tracking-wider hover:text-red-400 transition-colors duration-300 mt-auto">Ver más →</a>
+        </div>
+
+        <!-- Mantenimiento -->
+        <div class="reveal servicio-card group p-7 border border-gray-800 rounded-xl bg-black/60 hover:border-red-700/60 hover:bg-gray-900/80 transition-all duration-400 cursor-default flex flex-col gap-5">
+          <div class="w-14 h-14 rounded-xl bg-red-700/10 border border-red-700/20 flex items-center justify-center group-hover:scale-125 transition-transform duration-300 ease-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-base mb-2 group-hover:text-red-400 transition-colors duration-300">Servicios y Mantenimiento</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Mantenimiento preventivo y correctivo para preservar el valor de cada proyecto.</p>
+          </div>
+          <a href="/que-hacemos" class="text-red-600 text-xs font-semibold uppercase tracking-wider hover:text-red-400 transition-colors duration-300 mt-auto">Ver más →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO PREVIEW -->
+  <section class="py-16 md:py-24 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div class="reveal">
+          <p class="text-red-500 text-xs font-semibold uppercase tracking-widest mb-2">Nuestro Trabajo</p>
+          <h2 class="text-4xl sm:text-5xl font-black text-white leading-tight">Portafolio</h2>
+        </div>
+        <a href="/portafolio" class="reveal btn-glow border border-red-700 text-red-500 hover:bg-red-700 hover:text-white px-6 py-2.5 rounded text-xs uppercase tracking-wider transition-all duration-300 self-start sm:self-auto">
+          Ver todos →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {proyectos.map((p, i) => (
+          <a href="/portafolio" class="reveal card-proyecto block bg-gray-900 rounded-lg overflow-hidden group" style={`transition-delay: ${i * 0.08}s`}>
+            <!-- Placeholder visual -->
+            <div class="aspect-[4/3] bg-gradient-to-br from-gray-800 to-gray-900 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                <div class="text-center">
+                  <div class="text-4xl font-black text-gray-700 leading-none mb-1">CD</div>
+                  <div class="text-xs text-gray-600 uppercase tracking-widest">Arq</div>
+                </div>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-3">
+                <span class="text-white text-xs font-semibold uppercase tracking-wider">Ver proyecto →</span>
+              </div>
+              <div class="absolute top-3 left-3">
+                <span class="bg-red-700/90 text-white text-xs px-2 py-0.5 rounded">{p.categoria.split(' ')[0]}</span>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-start justify-between gap-2 mb-1">
+                <h3 class="text-white font-semibold text-sm group-hover:text-red-400 transition-colors duration-300">{p.nombre}</h3>
+                <span class="text-gray-600 text-xs shrink-0">{p.año}</span>
+              </div>
+              <p class="text-gray-500 text-xs leading-relaxed line-clamp-2">{p.descripcion}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTES PREVIEW -->
+  <section class="py-16 md:py-20 px-4 bg-gray-900/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div class="reveal">
+          <p class="text-red-500 text-xs font-semibold uppercase tracking-widest mb-2">Quienes Confían en Nosotros</p>
+          <h2 class="text-4xl sm:text-5xl font-black text-white leading-tight">Clientes</h2>
+        </div>
+        <a href="/clientes" class="reveal btn-glow border border-red-700 text-red-500 hover:bg-red-700 hover:text-white px-6 py-2.5 rounded text-xs uppercase tracking-wider transition-all duration-300 self-start sm:self-auto">
+          Ver todos →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {clientes.map((c, i) => (
+          <div
+            class="reveal group border border-gray-800 rounded-xl p-5 flex flex-col items-center justify-center text-center hover:border-red-700/50 hover:bg-black/60 transition-all duration-300 cursor-default"
+            style={`transition-delay: ${i * 0.06}s`}
+          >
+            <div class="w-12 h-12 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center mb-3 group-hover:border-red-700/50 group-hover:scale-110 transition-all duration-300">
+              <span class="text-gray-500 font-black text-lg">{c.nombre.split(' ')[1]}</span>
+            </div>
+            <p class="text-white text-xs font-semibold">{c.nombre}</p>
+            <p class="text-gray-600 text-xs mt-0.5">{c.sector}</p>
           </div>
         ))}
       </div>
 
-      <div class="text-center mt-10">
-        <a href="/que-hacemos" class="btn-glow inline-block border border-red-700 text-red-500 hover:bg-red-700 hover:text-white px-8 py-3 rounded text-sm uppercase tracking-wider transition-all duration-300">
-          Ver todos los servicios
-        </a>
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14 pt-10 border-t border-gray-800">
+        {[
+          { num: '+50', label: 'Proyectos' },
+          { num: '+30', label: 'Clientes' },
+          { num: '10+', label: 'Años' },
+          { num: '100%', label: 'Compromiso' },
+        ].map(s => (
+          <div class="reveal text-center">
+            <div class="text-3xl sm:text-4xl font-black text-red-600 mb-1">{s.num}</div>
+            <div class="text-gray-500 text-xs uppercase tracking-widest">{s.label}</div>
+          </div>
+        ))}
       </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-20 px-4">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
+        ¿Tienes un proyecto<br /><span class="text-red-600">en mente?</span>
+      </h2>
+      <p class="text-gray-400 text-sm mb-8">Hablemos y hagámoslo realidad juntos. Primera consulta sin compromiso.</p>
+      <a href="/contacto" class="btn-glow inline-block bg-red-700 hover:bg-red-600 text-white font-semibold px-12 py-4 rounded text-sm uppercase tracking-wider transition-colors duration-300">
+        Contactar ahora
+      </a>
     </div>
   </section>
 
   <Footer />
 
   <script>
-    // Scroll reveal con IntersectionObserver
-    const revealElements = document.querySelectorAll('.reveal');
+    const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      }),
+      { threshold: 0.08 }
     );
-    revealElements.forEach(el => observer.observe(el));
+    revealEls.forEach(el => observer.observe(el));
   </script>
 
 </body>
