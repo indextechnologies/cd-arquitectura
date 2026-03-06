@@ -44,12 +44,22 @@ const clientes = [
 
   <!-- HERO -->
   <section class="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 overflow-hidden">
-    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(#cc0000 1px, transparent 1px), linear-gradient(90deg, #cc0000 1px, transparent 1px); background-size: 60px 60px;"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-red-900/10 blur-3xl pointer-events-none"></div>
+    <!-- Building silhouette background -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/hero-buildings.svg"
+        alt=""
+        aria-hidden="true"
+        class="w-full h-full object-cover object-bottom select-none pointer-events-none"
+        style="opacity: 0.85;"
+      />
+    </div>
+    <!-- Red center glow behind logo -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-red-900/20 blur-3xl pointer-events-none z-0"></div>
 
     <div class="relative z-10 text-center mb-8 fade-in" style="animation-delay: 0.1s;">
       <div class="flex items-center justify-center gap-2 md:gap-4 mb-6">
-        <span class="neon-cd text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black leading-none">CD</span>
+        <span class="neon-cd text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black leading-none" style="filter: drop-shadow(0 0 40px rgba(204,0,0,0.4));">CD</span>
         <div class="flex flex-col items-start">
           <span class="text-gray-600 text-2xl sm:text-3xl font-thin leading-none mb-1">_</span>
           <span class="neon-arq text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.2em] leading-none">ARQ</span>
@@ -64,12 +74,12 @@ const clientes = [
       <a href="/portafolio" class="btn-glow bg-red-700 hover:bg-red-600 text-white font-semibold px-8 py-3.5 rounded text-sm uppercase tracking-wider transition-colors duration-300 text-center">
         Ver Portafolio
       </a>
-      <a href="/contacto" class="border border-gray-700 hover:border-red-600 text-gray-300 hover:text-white font-semibold px-8 py-3.5 rounded text-sm uppercase tracking-wider transition-all duration-300 text-center">
+      <a href="/contacto" class="border border-gray-700 hover:border-red-600 text-gray-300 hover:text-white font-semibold px-8 py-3.5 rounded text-sm uppercase tracking-wider transition-all duration-300 text-center backdrop-blur-sm bg-black/20">
         Contactar
       </a>
     </div>
 
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in" style="animation-delay: 1.2s;">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in z-10" style="animation-delay: 1.2s;">
       <span class="text-gray-600 text-xs uppercase tracking-widest">Scroll</span>
       <div class="w-px h-12 bg-gradient-to-b from-gray-600 to-transparent animate-pulse"></div>
     </div>
