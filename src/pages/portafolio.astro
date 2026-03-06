@@ -1,0 +1,210 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CardProyecto from '../components/CardProyecto.astro';
+import SeccionTexto from '../components/SeccionTexto.astro';
+import '../styles/main.css';
+
+const categorias = [
+  'Todos',
+  'Hogares y Reformas',
+  'Espacios Comerciales',
+  'Oficinas y Proyectos Corporativos',
+  'Servicios y Mantenimiento',
+];
+
+const proyectos = [
+  {
+    nombre: 'Casa Moderna Granada',
+    categoria: 'Hogares y Reformas',
+    descripcion: 'Reforma integral de vivienda unifamiliar con diseño minimalista y materiales sostenibles.',
+    año: 2024,
+  },
+  {
+    nombre: 'Apartamento Centro',
+    categoria: 'Hogares y Reformas',
+    descripcion: 'Renovación completa de apartamento en el centro histórico. Combinación de elementos modernos y clásicos.',
+    año: 2023,
+  },
+  {
+    nombre: 'Restaurante La Bóveda',
+    categoria: 'Espacios Comerciales',
+    descripcion: 'Diseño de interiores para restaurante de alta cocina. Ambiente elegante y atmosférico.',
+    año: 2024,
+  },
+  {
+    nombre: 'Boutique Fashion District',
+    categoria: 'Espacios Comerciales',
+    descripcion: 'Local comercial de moda con escaparates diseñados para maximizar el impacto visual.',
+    año: 2023,
+  },
+  {
+    nombre: 'Oficinas Tech Hub',
+    categoria: 'Oficinas y Proyectos Corporativos',
+    descripcion: 'Espacio de trabajo colaborativo para empresa tecnológica. Open space y zonas privadas integradas.',
+    año: 2024,
+  },
+  {
+    nombre: 'Sede Corporativa Norte',
+    categoria: 'Oficinas y Proyectos Corporativos',
+    descripcion: 'Proyecto de reforma y ampliación de sede corporativa. Tres plantas de oficinas y zonas comunes.',
+    año: 2023,
+  },
+  {
+    nombre: 'Mantenimiento Complejo Residencial',
+    categoria: 'Servicios y Mantenimiento',
+    descripcion: 'Servicio integral de mantenimiento para complejo residencial de 40 viviendas.',
+    año: 2024,
+  },
+  {
+    nombre: 'Rehabilitación Fachada',
+    categoria: 'Servicios y Mantenimiento',
+    descripcion: 'Rehabilitación de fachada histórica con técnicas modernas de conservación.',
+    año: 2023,
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Portafolio – CD Arquitectura</title>
+  <meta name="description" content="Descubre los proyectos de CD Arquitectura: hogares, espacios comerciales, oficinas y más." />
+  <meta property="og:title" content="Portafolio – CD Arquitectura" />
+  <meta property="og:description" content="Proyectos de arquitectura y diseño: hogares, comercios, oficinas y mantenimiento." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+  <Header currentPage="/portafolio" />
+
+  <!-- HERO PORTAFOLIO -->
+  <section class="relative pt-32 pb-16 px-4 overflow-hidden">
+    <!-- Parallax bg -->
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-900/40 to-black pointer-events-none"></div>
+    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(#cc0000 1px, transparent 1px), linear-gradient(90deg, #cc0000 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto text-center">
+      <p class="text-red-500 text-xs font-semibold uppercase tracking-widest mb-3 fade-in">Nuestro Trabajo</p>
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-none mb-6 fade-in-up">
+        Porta<span class="text-red-600">folio</span>
+      </h1>
+      <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto fade-in" style="animation-delay: 0.3s;">
+        Cada proyecto es una historia de colaboración, creatividad y precisión técnica.
+      </p>
+    </div>
+  </section>
+
+  <!-- FILTROS DE CATEGORÍA -->
+  <section class="py-8 px-4 sticky top-16 md:top-20 z-40 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-wrap gap-2 justify-center">
+        {categorias.map(cat => (
+          <button
+            class="categoria-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded border border-gray-700 text-gray-400 hover:border-red-600 hover:text-red-400 transition-all duration-300 cursor-pointer"
+            data-categoria={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS GRID -->
+  <section class="py-16 md:py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div id="proyectos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {proyectos.map((p, i) => (
+          <div
+            class="reveal proyecto-item"
+            data-categoria={p.categoria}
+            style={`animation-delay: ${i * 0.08}s`}
+          >
+            <CardProyecto
+              nombre={p.nombre}
+              categoria={p.categoria}
+              descripcion={p.descripcion}
+              año={p.año}
+            />
+          </div>
+        ))}
+      </div>
+
+      <!-- No results -->
+      <p id="no-results" class="hidden text-center text-gray-600 py-16 text-sm uppercase tracking-widest">
+        No hay proyectos en esta categoría aún.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-4 bg-gray-900/30">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">¿Tienes un proyecto en mente?</h2>
+      <p class="text-gray-400 text-sm mb-8">Hablemos y hagámoslo realidad juntos.</p>
+      <a href="/contacto" class="btn-glow inline-block bg-red-700 hover:bg-red-600 text-white font-semibold px-10 py-4 rounded text-sm uppercase tracking-wider transition-colors duration-300">
+        Empezar proyecto
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+      { threshold: 0.08 }
+    );
+    revealEls.forEach(el => observer.observe(el));
+
+    // Filtro categorías
+    const btns = document.querySelectorAll<HTMLButtonElement>('.categoria-btn');
+    const items = document.querySelectorAll<HTMLElement>('.proyecto-item');
+    const noResults = document.getElementById('no-results');
+
+    let activeCategoria = 'Todos';
+
+    function activarBtn(btn: HTMLButtonElement) {
+      btns.forEach(b => {
+        b.classList.remove('bg-red-700', 'text-white', 'border-red-700');
+        b.classList.add('border-gray-700', 'text-gray-400');
+      });
+      btn.classList.add('bg-red-700', 'text-white', 'border-red-700');
+      btn.classList.remove('border-gray-700', 'text-gray-400');
+    }
+
+    function filtrar(cat: string) {
+      activeCategoria = cat;
+      let visible = 0;
+      items.forEach(item => {
+        const match = cat === 'Todos' || item.dataset.categoria === cat;
+        item.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      noResults?.classList.toggle('hidden', visible > 0);
+    }
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activarBtn(btn);
+        filtrar(btn.dataset.categoria || 'Todos');
+      });
+    });
+
+    // Activar "Todos" por defecto
+    const todosBtn = document.querySelector<HTMLButtonElement>('[data-categoria="Todos"]');
+    if (todosBtn) activarBtn(todosBtn);
+  </script>
+
+</body>
+</html>

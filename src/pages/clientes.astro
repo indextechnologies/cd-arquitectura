@@ -1,0 +1,158 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SeccionTexto from '../components/SeccionTexto.astro';
+import '../styles/main.css';
+
+const clientes = [
+  { nombre: 'Cliente A', sector: 'Residencial', descripcion: 'Empresa familiar con múltiples proyectos de reforma en toda la región.' },
+  { nombre: 'Cliente B', sector: 'Hostelería', descripcion: 'Grupo de restauración que confía en nosotros para el diseño de sus nuevos locales.' },
+  { nombre: 'Cliente C', sector: 'Corporativo', descripcion: 'Compañía tecnológica que renovó sus oficinas con nuestro equipo.' },
+  { nombre: 'Cliente D', sector: 'Comercial', descripcion: 'Cadena de tiendas con presencia en varias ciudades.' },
+  { nombre: 'Cliente E', sector: 'Institucional', descripcion: 'Institución pública con proyectos de rehabilitación patrimonial.' },
+  { nombre: 'Cliente F', sector: 'Promotora', descripcion: 'Promotora inmobiliaria con proyectos residenciales de alta gama.' },
+];
+
+const testimonios = [
+  {
+    texto: 'CD Arquitectura transformó completamente nuestra oficina. El resultado superó todas nuestras expectativas. Profesionalidad y creatividad al máximo nivel.',
+    autor: 'Director General, Cliente C',
+  },
+  {
+    texto: 'Trabajar con Marcello y Vanessa fue una experiencia excepcional. Entienden perfectamente lo que el cliente necesita y lo ejecutan con precisión.',
+    autor: 'Propietario, Cliente B',
+  },
+  {
+    texto: 'La reforma de nuestra vivienda quedó perfecta. Cumplieron plazos y presupuesto sin sorpresas. Los recomendamos sin dudar.',
+    autor: 'Familia, Cliente A',
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Clientes – CD Arquitectura</title>
+  <meta name="description" content="Conoce a los clientes que han confiado en CD Arquitectura para sus proyectos." />
+  <meta property="og:title" content="Clientes – CD Arquitectura" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+  <Header currentPage="/clientes" />
+
+  <!-- HERO -->
+  <section class="relative pt-32 pb-16 px-4 overflow-hidden">
+    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(#cc0000 1px, transparent 1px), linear-gradient(90deg, #cc0000 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <div class="relative z-10 max-w-7xl mx-auto text-center">
+      <p class="text-red-500 text-xs font-semibold uppercase tracking-widest mb-3 fade-in">Quienes Confían en Nosotros</p>
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-none mb-6 fade-in-up">
+        Nuestros <span class="text-red-600">Clientes</span>
+      </h1>
+      <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto fade-in" style="animation-delay: 0.3s;">
+        La confianza de nuestros clientes es la base de todo lo que hacemos.
+      </p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="py-12 px-4 border-y border-gray-800">
+    <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      {[
+        { num: '+50', label: 'Proyectos Entregados' },
+        { num: '+30', label: 'Clientes Satisfechos' },
+        { num: '10+', label: 'Años de Experiencia' },
+        { num: '100%', label: 'Compromiso' },
+      ].map(stat => (
+        <div class="reveal">
+          <div class="text-3xl sm:text-4xl font-black text-red-600 mb-1">{stat.num}</div>
+          <div class="text-gray-500 text-xs uppercase tracking-widest">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CLIENTES GRID -->
+  <section class="py-16 md:py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <SeccionTexto
+        titulo="Clientes & Colaboradores"
+        subtitulo="Con quienes trabajamos"
+        clase="mb-12"
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {clientes.map((c, i) => (
+          <div class="reveal p-6 border border-gray-800 rounded-lg hover:border-red-700/50 transition-all duration-300 group" style={`transition-delay: ${i * 0.08}s`}>
+            <!-- Logo placeholder -->
+            <div class="w-16 h-16 rounded-lg bg-gray-900 border border-gray-700 flex items-center justify-center mb-4 group-hover:border-red-700/50 transition-colors duration-300">
+              <span class="text-gray-600 font-black text-lg">{c.nombre.split(' ')[1]}</span>
+            </div>
+            <div class="flex items-start justify-between gap-2 mb-2">
+              <h3 class="text-white font-semibold">{c.nombre}</h3>
+              <span class="text-red-600 text-xs font-medium bg-red-700/10 px-2 py-0.5 rounded shrink-0">{c.sector}</span>
+            </div>
+            <p class="text-gray-500 text-sm leading-relaxed">{c.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="py-16 md:py-20 px-4 bg-gray-900/30">
+    <div class="max-w-7xl mx-auto">
+      <SeccionTexto
+        titulo="Testimonios"
+        subtitulo="Lo que dicen"
+        clase="mb-12"
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonios.map((t, i) => (
+          <div class="reveal p-6 border border-gray-800 rounded-lg relative" style={`transition-delay: ${i * 0.1}s`}>
+            <div class="text-red-700 text-4xl font-black leading-none mb-4 opacity-50">"</div>
+            <p class="text-gray-300 text-sm leading-relaxed mb-5 italic">{t.texto}</p>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center">
+                <span class="text-gray-500 text-xs font-bold">–</span>
+              </div>
+              <span class="text-gray-500 text-xs">{t.autor}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-4">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">¿Quieres ser nuestro próximo cliente?</h2>
+      <p class="text-gray-400 text-sm mb-8">Contáctanos y empieza a construir tu proyecto hoy.</p>
+      <a href="/contacto" class="btn-glow inline-block bg-red-700 hover:bg-red-600 text-white font-semibold px-10 py-4 rounded text-sm uppercase tracking-wider transition-colors duration-300">
+        Contactar
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+      { threshold: 0.08 }
+    );
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

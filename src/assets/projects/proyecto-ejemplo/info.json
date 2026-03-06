@@ -1,0 +1,7 @@
+{
+  "nombre": "Proyecto Ejemplo",
+  "categoria": "Hogares y Reformas",
+  "descripcion": "Reforma integral de vivienda con diseño moderno y funcional.",
+  "año": 2024,
+  "imagenes": ["imagen1.jpg", "imagen2.jpg"]
+}

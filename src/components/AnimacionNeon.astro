@@ -1,0 +1,28 @@
+---
+export interface Props {
+  texto?: string;
+  color?: 'rojo' | 'blanco';
+  tamaño?: 'sm' | 'md' | 'lg' | 'xl';
+  clase?: string;
+}
+
+const {
+  texto = 'CD_ARQ',
+  color = 'rojo',
+  tamaño = 'lg',
+  clase = '',
+} = Astro.props;
+
+const sizeMap = {
+  sm: 'text-2xl',
+  md: 'text-4xl',
+  lg: 'text-6xl',
+  xl: 'text-8xl',
+};
+
+const colorClass = color === 'rojo' ? 'neon-cd' : 'neon-arq';
+---
+
+<span class={`${sizeMap[tamaño]} font-black ${colorClass} ${clase}`}>
+  {texto}
+</span>

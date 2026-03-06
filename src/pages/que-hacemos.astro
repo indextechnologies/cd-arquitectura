@@ -1,0 +1,177 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SeccionTexto from '../components/SeccionTexto.astro';
+import '../styles/main.css';
+
+const servicios = [
+  {
+    titulo: 'Hogares y Reformas',
+    descripcion: 'Transformamos viviendas con reformas integrales que combinan funcionalidad y estética. Desde la planificación hasta la entrega final, gestionamos cada detalle para crear el hogar que siempre imaginaste.',
+    actividades: [
+      'Reforma integral de viviendas',
+      'Diseño de interiores residencial',
+      'Renovación de cocinas y baños',
+      'Redistribución de espacios',
+      'Dirección de obra',
+    ],
+  },
+  {
+    titulo: 'Espacios Comerciales',
+    descripcion: 'Diseñamos locales y establecimientos que comunican la identidad de tu marca y maximizan la experiencia del cliente. Cada espacio comercial es una herramienta de negocio.',
+    actividades: [
+      'Diseño de locales comerciales',
+      'Interiorismo para restaurantes y bares',
+      'Escaparatismo y visual merchandising',
+      'Rehabilitación de locales',
+      'Gestión de licencias y permisos',
+    ],
+  },
+  {
+    titulo: 'Oficinas y Proyectos Corporativos',
+    descripcion: 'Creamos entornos de trabajo que potencian la productividad y reflejan la cultura de tu empresa. Diseño corporativo con visión estratégica.',
+    actividades: [
+      'Diseño de oficinas open space',
+      'Salas de reuniones y zonas privadas',
+      'Proyectos de ampliación corporativa',
+      'Reforma de sedes empresariales',
+      'Consultoría de espacios de trabajo',
+    ],
+  },
+  {
+    titulo: 'Servicios y Mantenimiento',
+    descripcion: 'Ofrecemos servicios continuos de mantenimiento preventivo y correctivo para preservar el valor y la funcionalidad de cada proyecto a largo plazo.',
+    actividades: [
+      'Mantenimiento preventivo de edificios',
+      'Rehabilitación de fachadas',
+      'Reparaciones estructurales',
+      'Inspecciones técnicas periódicas',
+      'Gestión de comunidades de propietarios',
+    ],
+  },
+];
+
+const proceso = [
+  { num: '01', titulo: 'Consulta Inicial', desc: 'Escuchamos tus ideas y necesidades en una primera reunión sin compromiso.' },
+  { num: '02', titulo: 'Propuesta y Diseño', desc: 'Desarrollamos un anteproyecto con renders, planos y presupuesto detallado.' },
+  { num: '03', titulo: 'Aprobación y Permisos', desc: 'Gestionamos toda la documentación técnica, licencias y permisos necesarios.' },
+  { num: '04', titulo: 'Ejecución de Obra', desc: 'Supervisamos cada fase de la construcción con rigor y transparencia.' },
+  { num: '05', titulo: 'Entrega Final', desc: 'Entregamos el proyecto terminado con garantía y soporte post-obra.' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Qué Hacemos – CD Arquitectura</title>
+  <meta name="description" content="Servicios de CD Arquitectura: hogares y reformas, espacios comerciales, oficinas corporativas y mantenimiento." />
+  <meta property="og:title" content="Qué Hacemos – CD Arquitectura" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+  <Header currentPage="/que-hacemos" />
+
+  <!-- HERO -->
+  <section class="relative pt-32 pb-16 px-4 overflow-hidden">
+    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(#cc0000 1px, transparent 1px), linear-gradient(90deg, #cc0000 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <div class="relative z-10 max-w-7xl mx-auto text-center">
+      <p class="text-red-500 text-xs font-semibold uppercase tracking-widest mb-3 fade-in">Nuestros Servicios</p>
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-none mb-6 fade-in-up">
+        Qué <span class="text-red-600">Hacemos</span>
+      </h1>
+      <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto fade-in" style="animation-delay: 0.3s;">
+        De la idea al espacio terminado. Cubrimos todas las etapas del proceso arquitectónico con excelencia y compromiso.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICIOS DETALLADOS -->
+  <section class="py-16 md:py-20 px-4">
+    <div class="max-w-7xl mx-auto space-y-20">
+      {servicios.map((s, i) => (
+        <div class={`reveal grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+          <!-- Placeholder visual -->
+          <div class={`${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div class="aspect-[4/3] bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg flex items-center justify-center border border-gray-800 group overflow-hidden">
+              <div class="text-center p-8 transition-transform duration-500 group-hover:scale-105">
+                <div class="text-6xl font-black text-gray-800 mb-3 leading-none">0{i+1}</div>
+                <div class="text-gray-600 text-xs uppercase tracking-[0.3em]">{s.titulo}</div>
+                <div class="w-12 h-0.5 bg-red-700 mx-auto mt-4"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto -->
+          <div class={`${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <p class="text-red-500 text-xs font-semibold uppercase tracking-widest mb-3">Servicio 0{i+1}</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">{s.titulo}</h2>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">{s.descripcion}</p>
+            <ul class="space-y-2">
+              {s.actividades.map(act => (
+                <li class="flex items-center gap-3 text-gray-300 text-sm">
+                  <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+                  {act}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="py-16 md:py-20 px-4 bg-gray-900/30">
+    <div class="max-w-7xl mx-auto">
+      <SeccionTexto
+        titulo="Nuestro Proceso"
+        subtitulo="Cómo Trabajamos"
+        descripcion="Un proceso transparente y colaborativo para garantizar que cada proyecto supere tus expectativas."
+        clase="mb-14"
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {proceso.map((p, i) => (
+          <div class="reveal text-center lg:text-left" style={`transition-delay: ${i * 0.1}s`}>
+            <div class="text-5xl font-black text-gray-800 mb-3 leading-none">{p.num}</div>
+            <div class="w-8 h-0.5 bg-red-700 mb-3 mx-auto lg:mx-0"></div>
+            <h3 class="text-white font-semibold text-sm mb-2">{p.titulo}</h3>
+            <p class="text-gray-500 text-xs leading-relaxed">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-4">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">¿Empezamos tu proyecto?</h2>
+      <p class="text-gray-400 text-sm mb-8">Primera consulta sin compromiso. Cuéntanos tu idea.</p>
+      <a href="/contacto" class="btn-glow inline-block bg-red-700 hover:bg-red-600 text-white font-semibold px-10 py-4 rounded text-sm uppercase tracking-wider transition-colors duration-300">
+        Contactar ahora
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
+      { threshold: 0.08 }
+    );
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+---
+export interface Props {
+  nombre: string;
+  categoria: string;
+  descripcion: string;
+  año: number;
+  imagen?: string;
+  href?: string;
+}
+
+const { nombre, categoria, descripcion, año, imagen, href = '#' } = Astro.props;
+---
+
+<a href={href} class="card-proyecto block bg-gray-900 rounded-lg overflow-hidden group">
+  <!-- Image -->
+  <div class="relative overflow-hidden aspect-[4/3] bg-gray-800">
+    {imagen ? (
+      <img
+        src={imagen}
+        alt={nombre}
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+    ) : (
+      <!-- Placeholder -->
+      <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+        <div class="text-center">
+          <div class="text-4xl font-black text-gray-700 mb-2">CD</div>
+          <div class="text-xs text-gray-600 uppercase tracking-widest">Arquitectura</div>
+        </div>
+      </div>
+    )}
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-4">
+      <span class="text-white text-xs font-semibold uppercase tracking-wider">Ver proyecto →</span>
+    </div>
+
+    <!-- Category badge -->
+    <div class="absolute top-3 left-3">
+      <span class="bg-red-700/90 text-white text-xs font-medium px-2.5 py-1 rounded">
+        {categoria}
+      </span>
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div class="p-5">
+    <div class="flex items-start justify-between gap-2 mb-2">
+      <h3 class="text-white font-semibold text-base group-hover:text-red-400 transition-colors duration-300">
+        {nombre}
+      </h3>
+      <span class="text-gray-600 text-xs shrink-0">{año}</span>
+    </div>
+    <p class="text-gray-500 text-sm leading-relaxed line-clamp-2">{descripcion}</p>
+  </div>
+</a>

@@ -1,0 +1,40 @@
+---
+export interface Props {
+  titulo: string;
+  subtitulo?: string;
+  descripcion?: string;
+  alineacion?: 'left' | 'center' | 'right';
+  animacion?: 'fade-in-up' | 'slide-in-left' | 'slide-in-right' | 'fade-in';
+  clase?: string;
+}
+
+const {
+  titulo,
+  subtitulo,
+  descripcion,
+  alineacion = 'center',
+  animacion = 'fade-in-up',
+  clase = '',
+} = Astro.props;
+
+const textAlign = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right',
+}[alineacion];
+---
+
+<div class={`reveal ${clase} ${textAlign}`}>
+  {subtitulo && (
+    <p class="text-red-500 text-xs font-semibold uppercase tracking-widest mb-3">{subtitulo}</p>
+  )}
+  <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-4">
+    {titulo}
+  </h2>
+  {descripcion && (
+    <p class="text-gray-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+      {descripcion}
+    </p>
+  )}
+  <slot />
+</div>

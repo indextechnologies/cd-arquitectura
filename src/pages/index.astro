@@ -1,17 +1,206 @@
 ---
-
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SeccionTexto from '../components/SeccionTexto.astro';
+import '../styles/main.css';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <title>CD Arquitectura – Diseño & Construcción</title>
+  <meta name="description" content="CD Arquitectura: estudio de diseño y construcción liderado por Marcello y Vanessa. Hogares, espacios comerciales, oficinas y servicios de mantenimiento." />
+  <meta property="og:title" content="CD Arquitectura – Diseño & Construcción" />
+  <meta property="og:description" content="Arquitectura moderna con visión, precisión y pasión por el detalle." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+  <Header currentPage="/" />
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 overflow-hidden">
+    <!-- Background grid -->
+    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(#cc0000 1px, transparent 1px), linear-gradient(90deg, #cc0000 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <!-- Radial glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-red-900/10 blur-3xl pointer-events-none"></div>
+
+    <!-- Logo principal -->
+    <div class="relative z-10 text-center mb-8 fade-in" style="animation-delay: 0.1s;">
+      <div class="flex items-center justify-center gap-2 md:gap-4 mb-6">
+        <span class="neon-cd text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-black leading-none">CD</span>
+        <div class="flex flex-col items-start">
+          <span class="text-gray-600 text-2xl sm:text-3xl font-thin leading-none mb-1">_</span>
+          <span class="neon-arq text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.2em] leading-none">ARQ</span>
+        </div>
+      </div>
+
+      <p class="fade-in-up text-gray-400 text-base sm:text-lg md:text-xl font-light tracking-widest uppercase" style="animation-delay: 0.4s;">
+        Arquitectura · Diseño · Construcción
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 mt-4 fade-in-up" style="animation-delay: 0.7s;">
+      <a href="/portafolio" class="btn-glow bg-red-700 hover:bg-red-600 text-white font-semibold px-8 py-3.5 rounded text-sm uppercase tracking-wider transition-colors duration-300 text-center">
+        Ver Portafolio
+      </a>
+      <a href="/contacto" class="border border-gray-700 hover:border-red-600 text-gray-300 hover:text-white font-semibold px-8 py-3.5 rounded text-sm uppercase tracking-wider transition-all duration-300 text-center">
+        Contactar
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 fade-in" style="animation-delay: 1.2s;">
+      <span class="text-gray-600 text-xs uppercase tracking-widest">Scroll</span>
+      <div class="w-px h-12 bg-gradient-to-b from-gray-600 to-transparent animate-pulse"></div>
+    </div>
+  </section>
+
+  <!-- SOBRE NOSOTROS -->
+  <section class="py-20 md:py-28 px-4" id="sobre-nosotros">
+    <div class="max-w-7xl mx-auto">
+
+      <SeccionTexto
+        titulo="Sobre Nosotros"
+        subtitulo="Quiénes Somos"
+        descripcion="Somos un estudio de arquitectura comprometido con la excelencia, la funcionalidad y la estética. Cada proyecto es una oportunidad para crear espacios que inspiren."
+        clase="mb-16 md:mb-20"
+      />
+
+      <!-- Team grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+
+        <!-- Marcello -->
+        <div class="reveal flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-6 ring-2 ring-red-700/50 ring-offset-4 ring-offset-black">
+            <div class="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center group cursor-default">
+              <div class="text-center transition-transform duration-500 group-hover:scale-110">
+                <div class="text-3xl font-black text-gray-600">M</div>
+                <div class="text-xs text-gray-700 uppercase tracking-widest">Marcello</div>
+              </div>
+            </div>
+          </div>
+
+          <blockquote class="text-red-400 text-sm italic mb-4 font-light tracking-wide">
+            "La arquitectura es el arte de crear espacios que cuentan historias."
+          </blockquote>
+
+          <h3 class="text-white text-xl font-bold mb-1">Marcello</h3>
+          <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Arquitecto & Co-Fundador</p>
+
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">
+            Con más de 10 años de experiencia en diseño arquitectónico, Marcello lidera los proyectos residenciales y corporativos del estudio. Su enfoque combina innovación técnica con sensibilidad estética, creando espacios funcionales y atemporales.
+          </p>
+
+          <div class="flex flex-col gap-1.5 text-sm text-gray-500">
+            <span class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+              marcello@cdarquitectura.com
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+              +34 600 000 000
+            </span>
+          </div>
+        </div>
+
+        <!-- Vanessa -->
+        <div class="reveal flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden mb-6 ring-2 ring-red-700/50 ring-offset-4 ring-offset-black">
+            <div class="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center group cursor-default">
+              <div class="text-center transition-transform duration-500 group-hover:scale-110">
+                <div class="text-3xl font-black text-gray-600">V</div>
+                <div class="text-xs text-gray-700 uppercase tracking-widest">Vanessa</div>
+              </div>
+            </div>
+          </div>
+
+          <blockquote class="text-red-400 text-sm italic mb-4 font-light tracking-wide">
+            "Cada detalle importa. El diseño transforma la vida cotidiana."
+          </blockquote>
+
+          <h3 class="text-white text-xl font-bold mb-1">Vanessa</h3>
+          <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Arquitecta & Co-Fundadora</p>
+
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">
+            Especializada en interiorismo y espacios comerciales, Vanessa aporta una visión creativa y detallista a cada proyecto. Su experiencia internacional le permite integrar tendencias globales con el contexto local de cada cliente.
+          </p>
+
+          <div class="flex flex-col gap-1.5 text-sm text-gray-500">
+            <span class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+              vanessa@cdarquitectura.com
+            </span>
+            <span class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0"></span>
+              +34 610 000 000
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS PREVIEW -->
+  <section class="py-16 md:py-20 px-4 bg-gray-900/30">
+    <div class="max-w-7xl mx-auto">
+      <SeccionTexto
+        titulo="Nuestros Servicios"
+        subtitulo="Lo que hacemos"
+        clase="mb-12"
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { titulo: 'Hogares y Reformas', desc: 'Reforma integral de viviendas con diseño personalizado.' },
+          { titulo: 'Espacios Comerciales', desc: 'Locales y establecimientos diseñados para impactar.' },
+          { titulo: 'Oficinas Corporativas', desc: 'Espacios de trabajo modernos y funcionales.' },
+          { titulo: 'Mantenimiento', desc: 'Servicios continuos para preservar cada proyecto.' },
+        ].map((s, i) => (
+          <div class="reveal p-6 border border-gray-800 rounded-lg hover:border-red-700/50 transition-all duration-300 group">
+            <div class="w-8 h-1 bg-red-700 mb-5 group-hover:w-full transition-all duration-500 rounded"></div>
+            <h3 class="text-white font-semibold text-sm uppercase tracking-wider mb-2">{s.titulo}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/que-hacemos" class="btn-glow inline-block border border-red-700 text-red-500 hover:bg-red-700 hover:text-white px-8 py-3 rounded text-sm uppercase tracking-wider transition-all duration-300">
+          Ver todos los servicios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    // Scroll reveal con IntersectionObserver
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
 </html>
